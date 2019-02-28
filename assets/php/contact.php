@@ -4,7 +4,7 @@
 $emailTo = "chrishibberd75@gmail.com";
 
 // ENTER IDENTIFIER
-$emailIdentifier =  "Message sent via contact form from " . $_SERVER["SERVER_NAME"];
+$emailIdentifier =  "Message sent via contact form from " . $_SERVER["https://formspree.io/chrishibberd75@gmail.com"];
 
 
 if($_POST) {
