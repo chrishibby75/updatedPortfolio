@@ -60,14 +60,21 @@ jQuery(document).ready(function($) {
     $("#contact-form").submit(function(e) {
 
         e.preventDefault();
-        var postdata = $(this).serialize();
+        // var postdata = $(this).serialize();
+        let postdata = {
+            nameMessage: $("#contact-form-name").val(),
+            emailMessge: $("#contact-form-email").val(),
+            messageMessage: $("#contact-form-message").val()
+        }
 
         $.ajax({
 
-            type: "POST",
-            url: "assets/php/contact.php",
-            data: postdata,
-            dataType: "json",
+            method: "POST",
+            url: "https://profile-contacts-default-rtdb.firebaseio.com/contact.json",
+            body: JSON.stringify(postdata),
+            headers: {
+                "Content-Type": "application/json"
+            },
             success: function(json) {
 
                 $("#contact-form input, #contact-form textarea").removeClass("error");
